@@ -27,8 +27,8 @@ public class ProductController {
 
     @PostMapping
     public Product addProduct(@RequestBody Product product){
-        product.setId(nextId++);
-        products.put(product.id,product);
+        product.id = nextId++;
+        products.put(product.id, product);
         return product;
     }
 
