@@ -31,17 +31,17 @@ public class ProductController {
         return product;
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public Product changeProduct(@PathVariable Long id, @RequestBody Product product){
         if(!products.containsValue(id)){
-            throw new RuntimeException("id에 해당하는 객체가 없습니다.");
+            throw new RuntimeException("해당 id를 가지고있는 Product 객체가 없습니다.");
         }
         product.id = id;
         products.put(id, product);
         return product;
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void removeProduct(@PathVariable Long id) {
         if (!products.containsValue(id)) {
             throw new RuntimeException("해당 id를 가지고있는 Product 객체가 없습니다.");
