@@ -33,7 +33,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public Product changeProduct(@PathVariable Long id, @RequestBody Product product){
+    public Product changeProduct(@PathVariable("id") Long id, @RequestBody Product product){
         if(!products.containsKey(id)){
             throw new RuntimeException("해당 id를 가지고있는 Product 객체가 없습니다.");
         }
@@ -43,7 +43,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public void removeProduct(@PathVariable Long id) {
+    public void removeProduct(@PathVariable("id") Long id) {
         if (!products.containsKey(id)) {
             throw new RuntimeException("해당 id를 가지고있는 Product 객체가 없습니다.");
         }
