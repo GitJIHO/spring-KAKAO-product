@@ -25,6 +25,14 @@ public class ProductController {
         return new ArrayList<>(products.values());
     }
 
+    @GetMapping("/{id}")
+    public Product getOneProduct(@PathVariable("id") Long id){
+        if(!products.containsKey(id)){
+            throw new RuntimeException("해당 id를 가지고있는 Product 객체가 없습니다.");
+        }
+        return products.get(id);
+    }
+
     @PostMapping
     public Product addProduct(@RequestBody Product product){
         product.id = nextId++;
