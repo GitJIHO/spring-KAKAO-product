@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,10 +34,18 @@ public class ProductController {
     @PutMapping
     public Product changeProduct(@PathVariable Long id, @RequestBody Product product){
         if(!products.containsValue(id)){
-            throw new RuntimeException("id에 해당하는 객체가 없습니다");
+            throw new RuntimeException("id에 해당하는 객체가 없습니다.");
         }
         product.id = id;
         products.put(id, product);
         return product;
+    }
+
+    @DeleteMapping
+    public void removeProduct(@PathVariable Long id) {
+        if (!products.containsValue(id)) {
+            throw new RuntimeException("해당 id를 가지고있는 Product 객체가 없습니다.");
+        }
+        products.remove(id);
     }
 }
