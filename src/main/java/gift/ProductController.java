@@ -35,8 +35,8 @@ public class ProductController {
 
     @PostMapping
     public Product addProduct(@RequestBody Product product){
-        product.id = nextId++;
-        products.put(product.id, product);
+        product.setId(nextId++);
+        products.put(product.getId(), product);
         return product;
     }
 
@@ -45,7 +45,7 @@ public class ProductController {
         if(!products.containsKey(id)){
             throw new RuntimeException("해당 id를 가지고있는 Product 객체가 없습니다.");
         }
-        product.id = id;
+        product.setId(id);
         products.put(id, product);
         return product;
     }
