@@ -14,3 +14,7 @@
 - CRUD기능 html리턴타입으로 생성
 - 관리자 페이지 html 생성
 > 2단계 종료
+- 데이터베이스 설정 (application.properties)
+- 데이터베이스 테이블 생성
+- controller를 Dao, Service, controller로 분리 및, 의존성 주입
+> 3단계 종료
