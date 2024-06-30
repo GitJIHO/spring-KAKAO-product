@@ -1,12 +1,14 @@
 package gift;
 
 public class Product {
+
     private Long id;
     private String name;
     private int price;
     private String img;
 
-    Product(){}
+    Product() {
+    }
 
     public Product(Long id, String name, int price, String img) {
         this.id = id;
@@ -46,6 +48,7 @@ public class Product {
     public void setImg(String img) {
         this.img = img;
     }
+
     @Override
     public String toString() {
         return "Product{" +
