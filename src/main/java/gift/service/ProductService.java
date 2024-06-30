@@ -8,10 +8,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
+
     private ProductDAO productDAO;
 
     @Autowired
-    public ProductService(ProductDAO productDAO){
+    public ProductService(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }
 
@@ -19,19 +20,19 @@ public class ProductService {
         return productDAO.findAll();
     }
 
-    public Product getProductById(Long id){
+    public Product getProductById(Long id) {
         return productDAO.findById(id);
     }
 
-    public void saveProduct(Product product){
-        if (product.getId() == null){
+    public void saveProduct(Product product) {
+        if (product.getId() == null) {
             productDAO.save(product);
             return;
         }
         productDAO.update(product);
     }
 
-    public void deleteProduct(Long id){
+    public void deleteProduct(Long id) {
         productDAO.deleteById(id);
     }
 }
