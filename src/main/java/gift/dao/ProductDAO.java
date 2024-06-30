@@ -12,13 +12,12 @@ import org.springframework.stereotype.Repository;
 public class ProductDAO {
 
     private final JdbcTemplate jdbcTemplate;
+    private final RowMapper<Product> rowMapper = new BeanPropertyRowMapper<>(Product.class);
 
     @Autowired
     public ProductDAO(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
-    private final RowMapper<Product> rowMapper = new BeanPropertyRowMapper<>(Product.class);
 
     //sql 쿼리 결과를 자바 객체에 매핑시켜주는 도구
     public List<Product> findAll() {
