@@ -49,13 +49,4 @@ public class Product {
         this.img = img;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-            "id=" + id +
-            ", name='" + name + '\'' +
-            ", price=" + price +
-            ", img='" + img + '\'' +
-            '}';
-    }
 }
